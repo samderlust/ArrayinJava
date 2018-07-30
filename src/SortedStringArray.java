@@ -13,7 +13,7 @@ public class SortedStringArray {
         boolean added = false;
         String temp1 = string;
         String temp2;
-        // check if array is full then add one more space
+        // check if array is full then add double space
         if (size() == stringArray.length -1) {
             String[] tempArray = new String[stringArray.length * 2];
             for (int i = 0; i < this.stringArray.length; i++) {
@@ -58,10 +58,8 @@ public class SortedStringArray {
     }
 
     public boolean delete(int num) {
-        if (stringArray[num] == null) return false;
-        if (stringArray[num] != null) {
-            stringArray[num] = null;
-        }
+        if (num < 0 || num >= this.size()) return false;
+        stringArray[num] = null;
         for (int i =0; i < stringArray.length-1; i++) {
             if (stringArray[i] == null && stringArray[i+1] != null){
                 stringArray[i] = stringArray[i+1];
@@ -73,7 +71,7 @@ public class SortedStringArray {
 
     public boolean delete (String string) {
         boolean deleted = false;
-        for (int i = 0; i < this.stringArray.length; i++) {
+        for (int i = 0; i < this.size(); i++) {
             if(stringArray[i] == string) {
                 stringArray[i] = null;
                 deleted = true;
